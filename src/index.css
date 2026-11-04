@@ -5,8 +5,14 @@
   --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
+  background-color: #FAF7FC;
+  color: #1E1035;
 }
 
 h1, h2, h3, .font-display {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Phone, MapPin, Copy, Check, FileDown, ExternalLink } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { Mail, Phone, MapPin, Copy, Check, ExternalLink } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 export default function ContactSection() {
@@ -16,26 +16,24 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#FAF7FC] relative">
+    <motion.section
+      id="contact"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="py-24 md:py-32 bg-[#FAF7FC] relative"
+    >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <div className="text-xs font-semibold uppercase tracking-wider text-purple-700 mb-2">
-            Direct Communication
-          </div>
+        <div className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1E1035] font-display mb-4">
             Get in Touch
           </h2>
           <p className="text-base text-[#4C2875]/80 leading-relaxed">
             Reach out directly for disposition assistance, virtual operations, lead generation projects, or administrative roles.
           </p>
-        </motion.div>
+        </div>
 
         {/* Copy Toast Alert */}
         <div className="h-8 mb-4 flex items-center justify-center">
@@ -54,21 +52,15 @@ export default function ContactSection() {
           </AnimatePresence>
         </div>
 
-        {/* Direct Contact Cards (NO CONTACT FORM) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {/* Direct Contact Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Email Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{ duration: 0.4 }}
-            className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100 shadow-sm hover:border-purple-200 hover:shadow-md transition-all flex flex-col justify-between"
-          >
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100 shadow-[0_2px_12px_rgba(124,58,237,0.03)] hover:border-purple-300 hover:shadow-[0_16px_32px_-6px_rgba(124,58,237,0.1)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100">
+              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100 group-hover:bg-purple-700 group-hover:text-white transition-all duration-300 shadow-xs">
                 <Mail className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-[#1E1035] mb-1 font-display">
+              <h3 className="text-lg font-bold text-[#1E1035] mb-1 font-display group-hover:text-purple-700 transition-colors">
                 Email Address
               </h3>
               <p className="text-xs text-[#5D3A7A]/75 mb-4">
@@ -99,28 +91,22 @@ export default function ContactSection() {
               </button>
               <a
                 href={`mailto:${personal.email}`}
-                className="inline-flex items-center justify-center p-2 text-white bg-purple-700 hover:bg-purple-800 rounded-lg transition-colors"
+                className="inline-flex items-center justify-center p-2 text-white bg-purple-700 hover:bg-purple-800 rounded-lg transition-colors shadow-xs"
                 title="Open default email app"
                 aria-label="Send email"
               >
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Phone Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100 shadow-sm hover:border-purple-200 hover:shadow-md transition-all flex flex-col justify-between"
-          >
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100 shadow-[0_2px_12px_rgba(124,58,237,0.03)] hover:border-purple-300 hover:shadow-[0_16px_32px_-6px_rgba(124,58,237,0.1)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100">
+              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100 group-hover:bg-purple-700 group-hover:text-white transition-all duration-300 shadow-xs">
                 <Phone className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-[#1E1035] mb-1 font-display">
+              <h3 className="text-lg font-bold text-[#1E1035] mb-1 font-display group-hover:text-purple-700 transition-colors">
                 Direct Phone
               </h3>
               <p className="text-xs text-[#5D3A7A]/75 mb-4">
@@ -151,28 +137,22 @@ export default function ContactSection() {
               </button>
               <a
                 href={`tel:${personal.phone.replace(/\s+/g, '')}`}
-                className="inline-flex items-center justify-center p-2 text-white bg-purple-700 hover:bg-purple-800 rounded-lg transition-colors"
+                className="inline-flex items-center justify-center p-2 text-white bg-purple-700 hover:bg-purple-800 rounded-lg transition-colors shadow-xs"
                 title="Dial phone number"
                 aria-label="Dial phone"
               >
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Location Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100 shadow-sm hover:border-purple-200 hover:shadow-md transition-all flex flex-col justify-between"
-          >
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100 shadow-[0_2px_12px_rgba(124,58,237,0.03)] hover:border-purple-300 hover:shadow-[0_16px_32px_-6px_rgba(124,58,237,0.1)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100">
+              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100 group-hover:bg-purple-700 group-hover:text-white transition-all duration-300 shadow-xs">
                 <MapPin className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-[#1E1035] mb-1 font-display">
+              <h3 className="text-lg font-bold text-[#1E1035] mb-1 font-display group-hover:text-purple-700 transition-colors">
                 Location
               </h3>
               <p className="text-xs text-[#5D3A7A]/75 mb-4">
@@ -202,38 +182,9 @@ export default function ContactSection() {
                 )}
               </button>
             </div>
-          </motion.div>
-        </div>
-
-        {/* CV Download Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-purple-100 via-fuchsia-50 to-purple-50 border border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-6"
-        >
-          <div>
-            <h3 className="text-lg sm:text-xl font-bold text-[#1E1035] font-display">
-              Looking for a complete PDF copy of the resume?
-            </h3>
-            <p className="text-sm text-[#4C2875] mt-1">
-              Download or view Paula's original document directly from the archive.
-            </p>
           </div>
-
-          <a
-            href={personal.cvPdfUrl}
-            target="_blank"
-            rel="noreferrer"
-            download="Paula_CV.pdf"
-            className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-purple-700 rounded-xl hover:bg-purple-800 transition-colors shadow-sm shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
-          >
-            <FileDown className="w-4 h-4" />
-            <span>Download Official CV (PDF)</span>
-          </a>
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -19,14 +19,12 @@ export default function Footer() {
             <div className="text-base font-bold text-[#1E1035] font-display">
               {personal.fullName}
             </div>
-            <div className="text-xs text-[#5D3A7A]/75 mt-0.5">
-              San Pedro, Laguna, Philippines · {personal.email}
-            </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-6 text-xs font-medium text-[#4C2875]">
-            <a href="#about" className="hover:text-purple-700 transition-colors">About</a>
+            <a href="#hero" className="hover:text-purple-700 transition-colors">Home</a>
             <a href="#experience" className="hover:text-purple-700 transition-colors">Experience</a>
+            <a href="#tools" className="hover:text-purple-700 transition-colors">Tools</a>
             <a href="#skills" className="hover:text-purple-700 transition-colors">Skills</a>
             <a href="#education" className="hover:text-purple-700 transition-colors">Education</a>
             <a href="#contact" className="hover:text-purple-700 transition-colors">Contact</a>

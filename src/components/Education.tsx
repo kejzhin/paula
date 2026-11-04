@@ -6,36 +6,28 @@ export default function Education() {
   const { education } = PORTFOLIO_DATA;
 
   return (
-    <section id="education" className="py-20 md:py-28 bg-gradient-to-b from-[#FAF7FC] via-[#F4EDFA] to-[#FAF7FC] relative">
+    <motion.section
+      id="education"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="py-24 md:py-32 bg-gradient-to-b from-[#FAF7FC] via-[#F4EDFA] to-[#FAF7FC] relative"
+    >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mb-12"
-        >
-          <div className="text-xs font-semibold uppercase tracking-wider text-purple-700 mb-2">
-            Academic Background
-          </div>
+        <div className="max-w-3xl mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1E1035] font-display mb-4">
             Education & Clinical Credentials
           </h2>
           <p className="text-base text-[#4C2875]/80 leading-relaxed">
             Rigorous institutional training underpinning high ethical standards, precision documentation, and calm execution under pressure.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-2xl p-6 sm:p-9 border border-purple-100 shadow-[0_4px_24px_rgba(124,58,237,0.04)] hover:shadow-[0_8px_30px_rgba(124,58,237,0.08)] transition-all relative overflow-hidden"
-        >
+        <div className="bg-white rounded-2xl p-6 sm:p-9 border border-purple-100 shadow-[0_4px_24px_rgba(124,58,237,0.04)] hover:shadow-[0_16px_36px_-6px_rgba(124,58,237,0.1)] hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 border border-purple-200/60">
+              <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 border border-purple-200/60 shadow-xs">
                 <GraduationCap className="w-6 h-6" />
               </div>
               <div>
@@ -72,8 +64,8 @@ export default function Education() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

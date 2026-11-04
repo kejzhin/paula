@@ -29,56 +29,50 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 relative bg-[#FAF7FC]">
+    <motion.section
+      id="about"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="py-24 md:py-32 relative bg-[#FAF7FC]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mb-16"
-        >
-          <div className="text-xs font-semibold uppercase tracking-wider text-purple-700 mb-2">
-            Professional Overview
-          </div>
+        <div className="max-w-3xl mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1E1035] font-display text-balance mb-4">
             Bridging Precision Healthcare Discipline with Modern Business Operations
           </h2>
-          <p className="text-base sm:text-lg text-[#3E235D]/80 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#3E235D]/85 leading-relaxed">
             {personal.bio}
           </p>
-        </motion.div>
+        </div>
 
         {/* 4 Core Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((item, index) => {
             const Icon = item.icon;
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100/90 shadow-sm hover:shadow-md hover:border-purple-200 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white p-6 sm:p-7 rounded-2xl border border-purple-100/90 shadow-[0_2px_12px_rgba(124,58,237,0.03)] hover:shadow-[0_16px_36px_-6px_rgba(124,58,237,0.12)] hover:border-purple-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-default"
               >
                 <div>
-                  <div className="w-11 h-11 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100">
+                  <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-5 border border-purple-100 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-xs">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-[#1E1035] mb-2 font-display">
+                  <h3 className="text-lg font-bold text-[#1E1035] mb-2 font-display group-hover:text-purple-700 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-sm text-[#4C2875]/80 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
